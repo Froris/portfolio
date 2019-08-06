@@ -1,0 +1,27 @@
+@import "normalize.css";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    overflow-x: hidden;
+    background-color: rgb(32, 32, 32);
+    &.--contacts{
+        background-color: antiquewhite;
+    }
+    &.--about{
+        background-color: antiquewhite;
+    }
+}
+
+@import "btn.scss";
+@import "menu.scss";
+@import "content.scss";
+@import "footer.scss";

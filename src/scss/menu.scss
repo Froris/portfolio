@@ -1,0 +1,121 @@
+$menu-bgc: #111;
+$menu-font-color: rgb(161, 161, 161);
+$user__info-color: rgb(202, 202, 202);
+
+.main-menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background-color: $menu-bgc;
+    color: $menu-font-color;
+    z-index: 10;
+    overflow-x: hidden;
+    outline: none;
+    transition: all cubic-bezier(0.455, 0.03, 0.515, 0.955) .5s;
+    &.--off{
+        left: -20%;
+    }
+
+    .menu__user{
+        margin-top: 70px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        letter-spacing: 0.2em;
+        opacity: 0;
+        transition: .4s;
+        .user__photo img{
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+        }
+        .user__info{
+            text-align: center;
+            color: $user__info-color;
+            .user__name{
+                font-size: 2.3em;
+            }
+            .user__hobby{
+                font-size: 1.0em;
+            }
+        }
+    }
+
+    .menu__nav{
+        margin-top: -150px;
+        width: 100%;
+        transition: all .4s;
+        letter-spacing: 0.1em;
+        .nav__list{
+            text-align: center;
+            li{
+                margin: 0;
+                border-bottom: 2px solid rgb(102, 102, 102);
+                position: relative;
+                &:hover{
+                    background-color: rgb(218, 83, 60);
+                }
+                &::before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    margin-top: 15px;
+                    margin-left: 7.4px;
+                    width: 35px;
+                    height: 35px;
+                }
+                &:nth-child(1)::before{
+                    background: url("/images/icons/portfolio.svg");
+                }
+                &:nth-child(2)::before{
+                    background: url("/images/icons/contacts.svg");
+                }
+                &:nth-child(3)::before{
+                    background: url("/images/icons/aboutme.svg");
+                }
+
+                &.--current{
+                    border-bottom: none;
+                    box-shadow: 1px 1px 0px 1px rgb(21, 184, 0);
+                }
+            }
+        }
+        
+        .list__item{
+            padding-top: 18px;
+            padding-bottom: 18px;
+            white-space: nowrap;
+            display: block;
+            text-decoration: none;
+            color: $menu-font-color;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: .4s;
+        }
+    }
+}
+
+.main-menu.--active{
+    width: 330px;
+    &.--off{
+        left: -40%;
+    }
+    
+    .menu__user{
+        opacity: 1;
+    }
+    .menu__nav{
+        margin-top: 100px;
+    }
+    .list__item{
+        opacity: 1;
+        &:hover{
+            color: white;
+        }
+    }
+}
+
+
